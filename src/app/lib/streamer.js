@@ -68,7 +68,9 @@
 
     var handleTorrent = function (torrent, stateModel) {
 
-        var tmpFilename = torrent.info.infoHash;
+        var tmpFilename = torrent.title;//torrent.info.infoHash;
+		var date = new Date();
+		tmpFilename = tmpFilename +'-'+ (date.toDateString());
         tmpFilename = tmpFilename.replace(/([^a-zA-Z0-9-_])/g, '_'); // +'-'+ (new Date()*1);
         var tmpFile = path.join(App.settings.tmpLocation, tmpFilename);
         subtitles = torrent.subtitle;
